@@ -1,0 +1,71 @@
+{
+  "project_title": "Electronics_QC_Automation_Agent_V1",
+  "data_reference_source": "Design Specification Document (DSP) / Component Datasheet / IPC-A-610 Standard",
+  "description": "Defines the required input schema and validation rules for the n8n Agent.",
+  
+  "Input_Schema_Example": {
+    "Line_ID": "Line_A",
+    "DUT_SN": "MCU-DEV-B045",
+    "Test_Code": "V_CORE_STABILITY",
+    "Measured_Value": 3.28,
+    "Unit": "V",
+    "Test_Time": "2025-10-29T10:45:00Z"
+  },
+  
+  "Validation_Rules": {
+    
+    // ==========================================
+    // Rules for Line A: Microcontroller Board (MCU Board)
+    // ==========================================
+    "V_CORE_STABILITY": {
+      "Test_Name": "Core Voltage Stability Check",
+      "Unit": "V",
+      "Tolerance_Note": "± 5% on 3.3V nominal",
+      "Min": 3.135, 
+      "Max": 3.465  
+    },
+    "R_PULLUP_I2C": {
+      "Test_Name": "I2C Bus Pull-up Resistance",
+      "Unit": "kOhm",
+      "Tolerance_Note": "± 1%",
+      "Min": 0.99,
+      "Max": 1.01
+    },
+    
+    // ==========================================
+    // Rules for Line B: RF Module (Radio Frequency Module)
+    // ==========================================
+    "RF_TX_PWR_433": {
+      "Test_Name": "RF Transmit Power (433MHz)",
+      "Unit": "dBm",
+      "Tolerance_Note": "Target 20 dBm ± 2 dBm",
+      "Min": 18.0,
+      "Max": 22.0
+    },
+    "NOISE_FLOOR": {
+      "Test_Name": "Receiver Noise Floor",
+      "Unit": "dBm",
+      "Tolerance_Note": "Maximum limit (must be less than Max)",
+      "Min": null, // Can be null if only a max limit applies
+      "Max": -100.0 
+    },
+    
+    // ==========================================
+    // Rules for Line C: Power Supply Unit (PSU)
+    // ==========================================
+    "V_RIPPLE_MAX": {
+      "Test_Name": "Max Output Voltage Ripple",
+      "Unit": "mVpp", // millivolts peak-to-peak
+      "Tolerance_Note": "Max allowed ripple under full load",
+      "Min": 0.0,
+      "Max": 50.0 
+    },
+    "LOAD_REG_CHECK": {
+      "Test_Name": "Output Load Regulation Percentage",
+      "Unit": "%",
+      "Tolerance_Note": "Max allowed percentage change",
+      "Min": 0.0,
+      "Max": 1.0 
+    }
+  }
+}
