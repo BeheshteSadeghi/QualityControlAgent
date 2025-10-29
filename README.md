@@ -85,7 +85,3 @@ Verify Outputs: Check your Google Sheet and Telegram for the logged and alerted 
 🤝 **Contribution**
 
 Contributions are welcome! If you have suggestions for improving the logic, extending alert methods, or refining the preprocessor script, please submit a Pull Request.
-
-📝 ***License***
-
-This project is licensed under the MIT License - see the LICENSE file for details.
